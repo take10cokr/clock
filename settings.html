@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#000000",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-top {
+            clip-path: inset(0 0 50% 0);
+        }
+        .flip-bottom {
+            clip-path: inset(50% 0 0 0);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-black text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto border-x border-slate-800">
+<!-- TopAppBar -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<a href="index.html" class="text-slate-100 flex size-12 shrink-0 items-center cursor-pointer hover:bg-slate-800 rounded-full justify-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<h2 class="text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 px-2">Clock Settings</h2>
+<a href="index.html" class="bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm">Done</a>
+</div>
+<div class="flex flex-col gap-8 p-4">
+<!-- Preview Section -->
+<section class="flex flex-col gap-4">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest">Live Preview</h3>
+<div class="bg-white/5 rounded-xl p-8 flex items-center justify-center border border-white/10">
+<div class="relative w-32 h-44 bg-slate-900 rounded-xl flex flex-col shadow-2xl overflow-hidden border border-white/10">
+<!-- Top Half -->
+<div class="absolute inset-0 flex items-center justify-center flip-top border-b border-black/40">
+<span class="text-6xl font-black text-primary" style="font-size: 5rem;">1</span>
+</div>
+<!-- Bottom Half -->
+<div class="absolute inset-0 flex items-center justify-center flip-bottom">
+<span class="text-6xl font-black text-primary" style="font-size: 5rem;">1</span>
+</div>
+<!-- Middle Line Decor -->
+<div class="absolute top-1/2 left-0 w-full h-px bg-black/20 z-10"></div>
+</div>
+</div>
+</section>
+<!-- Time Format -->
+<section class="flex flex-col gap-4">
+<h3 class="text-slate-100 text-lg font-bold leading-tight tracking-tight">Time Format</h3>
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-slate-900 p-1 border border-slate-800">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-xl px-2 has-[:checked]:bg-slate-800 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">12-Hour</span>
+<input checked="" class="invisible w-0" name="time-format" type="radio" value="12h"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-xl px-2 has-[:checked]:bg-slate-800 has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-400 text-sm font-semibold transition-all">
+<span class="truncate">24-Hour</span>
+<input class="invisible w-0" name="time-format" type="radio" value="24h"/>
+</label>
+</div>
+</section>
+<!-- Language Selection -->
+<section class="flex flex-col gap-4">
+<h3 class="text-slate-100 text-lg font-bold leading-tight tracking-tight">Language</h3>
+<div class="relative w-full">
+<select class="w-full h-12 px-4 appearance-none bg-slate-900 border border-slate-800 rounded-xl text-slate-100 text-sm font-semibold focus:ring-2 focus:ring-primary focus:outline-none">
+<option value="en">English</option>
+<option value="ko">Korean</option>
+<option value="ja">Japanese</option>
+<option value="zh">Chinese</option>
+<option value="es">Spanish</option>
+<option value="fr">French</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Typography -->
+<section class="flex flex-col gap-4">
+<h3 class="text-slate-100 text-lg font-bold leading-tight tracking-tight">Typography</h3>
+<div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+<div class="flex w-full items-center justify-between mb-2">
+<p class="text-slate-100 text-sm font-medium">Digit Size</p>
+<p class="text-primary text-sm font-bold">85%</p>
+</div>
+<div class="flex h-6 w-full items-center gap-4">
+<div class="relative flex h-1.5 flex-1 items-center rounded-full bg-slate-800">
+<div class="h-full w-[85%] rounded-full bg-primary"></div>
+<div class="absolute left-[85%] -translate-x-1/2 size-5 rounded-full bg-primary border-4 border-slate-900 shadow-md"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Theme Color -->
+<section class="flex flex-col gap-4 mb-10">
+<h3 class="text-slate-100 text-lg font-bold leading-tight tracking-tight">Theme Color</h3>
+<div class="flex flex-wrap items-center gap-4">
+<!-- Preset: White -->
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-white" title="White"></button>
+<!-- Preset: Neon Green -->
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#39ff14]" title="Neon Green"></button>
+<!-- Preset: Yellow -->
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#fdfd01]" title="Yellow"></button>
+<!-- Preset: Blue -->
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#0070ff]" title="Blue"></button>
+<!-- Active Preset: Primary (Orange) -->
+<button class="size-12 rounded-full border-4 border-primary flex items-center justify-center bg-primary shadow-lg scale-110" title="Selected Color">
+<span class="material-symbols-outlined text-white text-base">check</span>
+</button>
+<!-- Custom Picker -->
+<button class="size-10 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center" title="Custom Color">
+<span class="material-symbols-outlined text-slate-400 text-xl">palette</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Footer Decor -->
+<div class="mt-auto p-8 flex flex-col items-center opacity-40">
+<span class="material-symbols-outlined text-4xl mb-2 text-slate-400">schedule</span>
+<p class="text-xs font-display uppercase tracking-widest text-slate-400">Flip Clock v2.4.0</p>
+</div>
+</div>
+</body></html>

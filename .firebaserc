@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "calculator-collection-take"
+  },
+  "targets": {
+    "calculator-collection-take": {
+      "hosting": {
+        "flip-clock-take-2026": [
+          "flip-clock-take-2026"
+        ]
+      }
+    }
+  }
+}

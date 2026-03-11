@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "target": "flip-clock-take-2026",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
