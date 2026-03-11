@@ -308,8 +308,18 @@
     initCard('sec-units', s[1]);
   }
 
+  // Apply saved settings
+  function applySettings() {
+    const savedSize = localStorage.getItem("clockFontSize") || 100;
+    const clockContainer = document.getElementById("clock-container");
+    if (clockContainer) {
+      clockContainer.style.transform = `scale(${savedSize / 100})`;
+    }
+  }
+
   // Set initial time
   initClock();
+  applySettings();
 
   // Update time every second
   setInterval(updateClock, 1000);
