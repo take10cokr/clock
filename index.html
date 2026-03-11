@@ -313,6 +313,32 @@
     const savedSize = localStorage.getItem("clockFontSize") || 100;
     const showSeconds = localStorage.getItem("clockShowSeconds") !== "false";
     
+    // Theme Colors
+    const bgColor = localStorage.getItem("clockBgColor") || "#000000";
+    const textColor = localStorage.getItem("clockTextColor") || "#ffffff";
+    const flipColor = localStorage.getItem("clockFlipColor") || "#1a1a1a";
+
+    // Apply Background
+    document.body.style.backgroundColor = bgColor;
+    const clockWrapper = document.querySelector('[data-purpose="clock-wrapper"]');
+    if (clockWrapper) clockWrapper.style.backgroundColor = bgColor;
+
+    // Apply Colors using CSS variables for efficiency
+    document.documentElement.style.setProperty('--flip-text-color', textColor);
+    document.documentElement.style.setProperty('--flip-bg-color', flipColor);
+    
+    // Add dynamic styles if not present
+    if (!document.getElementById('dynamic-theme-styles')) {
+      const style = document.createElement('style');
+      style.id = 'dynamic-theme-styles';
+      style.innerHTML = `
+        .flip-card span { color: var(--flip-text-color) !important; }
+        .flip-card, .top, .bottom, .flap-top, .flap-bottom { background-color: var(--flip-bg-color) !important; }
+        .w-2.h-2, .w-3.h-3 { background-color: var(--flip-text-color) !important; }
+      `;
+      document.head.appendChild(style);
+    }
+
     const clockContainer = document.getElementById("clock-container");
     if (clockContainer) {
       clockContainer.style.transform = `scale(${savedSize / 100})`;

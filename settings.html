@@ -119,17 +119,19 @@
 <!-- Theme Color -->
 <section class="flex flex-col gap-4">
 <h3 class="text-slate-100 text-lg font-bold leading-tight tracking-tight">테마 색상</h3>
-<div class="flex flex-wrap items-center gap-4">
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-white transition-transform hover:scale-110" title="White"></button>
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#39ff14] transition-transform hover:scale-110" title="Neon Green"></button>
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#fdfd01] transition-transform hover:scale-110" title="Yellow"></button>
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#0070ff] transition-transform hover:scale-110" title="Blue"></button>
-<button class="size-12 rounded-full border-4 border-primary flex items-center justify-center bg-primary shadow-lg scale-110 transition-transform active:scale-105" title="Selected Color">
-<span class="material-symbols-outlined text-white text-base">check</span>
-</button>
-<button class="size-10 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center transition-transform hover:scale-110" title="Custom Color">
-<span class="material-symbols-outlined text-slate-400 text-xl">palette</span>
-</button>
+<div class="grid grid-cols-1 gap-4 bg-slate-900 border border-slate-800 rounded-xl p-4">
+    <div class="flex items-center justify-between">
+        <span class="text-slate-100 text-sm font-medium">배경 색상</span>
+        <input type="color" id="bg-color-picker" class="w-10 h-10 border-none rounded cursor-pointer bg-transparent">
+    </div>
+    <div class="flex items-center justify-between border-t border-slate-800 pt-3">
+        <span class="text-slate-100 text-sm font-medium">글자 색상</span>
+        <input type="color" id="text-color-picker" class="w-10 h-10 border-none rounded cursor-pointer bg-transparent">
+    </div>
+    <div class="flex items-center justify-between border-t border-slate-800 pt-3">
+        <span class="text-slate-100 text-sm font-medium">플립 색상</span>
+        <input type="color" id="flip-color-picker" class="w-10 h-10 border-none rounded cursor-pointer bg-transparent">
+    </div>
 </div>
 </section>
 </div>
@@ -146,13 +148,25 @@
         const sizeLabel = document.getElementById("digit-size-label");
         const secondsToggle = document.getElementById("show-seconds-toggle");
         
+        const bgColorPicker = document.getElementById("bg-color-picker");
+        const textColorPicker = document.getElementById("text-color-picker");
+        const flipColorPicker = document.getElementById("flip-color-picker");
+        
         // Load saved settings
         const savedSize = localStorage.getItem("clockFontSize") || 100;
-        const savedShowSeconds = localStorage.getItem("clockShowSeconds") !== "false"; // Default to true
+        const savedShowSeconds = localStorage.getItem("clockShowSeconds") !== "false"; 
+        
+        const savedBgColor = localStorage.getItem("clockBgColor") || "#000000";
+        const savedTextColor = localStorage.getItem("clockTextColor") || "#ffffff";
+        const savedFlipColor = localStorage.getItem("clockFlipColor") || "#1a1a1a";
         
         sizeSlider.value = savedSize;
         sizeLabel.textContent = `${savedSize}%`;
         secondsToggle.checked = savedShowSeconds;
+        
+        bgColorPicker.value = savedBgColor;
+        textColorPicker.value = savedTextColor;
+        flipColorPicker.value = savedFlipColor;
         
         sizeSlider.addEventListener("input", (e) => {
             const val = e.target.value;
@@ -162,6 +176,18 @@
 
         secondsToggle.addEventListener("change", (e) => {
             localStorage.setItem("clockShowSeconds", e.target.checked);
+        });
+
+        bgColorPicker.addEventListener("input", (e) => {
+            localStorage.setItem("clockBgColor", e.target.value);
+        });
+
+        textColorPicker.addEventListener("input", (e) => {
+            localStorage.setItem("clockTextColor", e.target.value);
+        });
+
+        flipColorPicker.addEventListener("input", (e) => {
+            localStorage.setItem("clockFlipColor", e.target.value);
         });
     });
 </script>
