@@ -43,28 +43,30 @@
     </style>
 </head>
 <body class="bg-black text-slate-100 transition-colors duration-300">
-<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto border-x border-slate-800">
+<div class="relative flex min-h-screen w-full flex-col max-w-3xl mx-auto md:px-8 border-x border-slate-800">
 <!-- TopAppBar -->
 <div class="flex items-center p-4 pb-2 justify-between">
 <a href="index.html" class="text-slate-100 flex size-12 shrink-0 items-center cursor-pointer hover:bg-slate-800 rounded-full justify-center">
 <span class="material-symbols-outlined">arrow_back</span>
 </a>
-<h2 class="text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 px-2">Clock Settings</h2>
-<a href="index.html" class="bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm">Done</a>
+<h2 class="text-slate-100 text-lg md:text-2xl font-bold leading-tight tracking-tight flex-1 px-2 text-center md:text-left">Clock Settings</h2>
+<a href="index.html" class="bg-primary text-white px-6 py-2.5 rounded-lg font-medium text-sm md:text-base transition-transform active:scale-95 shadow-lg shadow-primary/20">Done</a>
 </div>
-<div class="flex flex-col gap-8 p-4">
+<div class="flex flex-col md:grid md:grid-cols-2 gap-8 p-4">
+<!-- Left Column: Preview & Time Format -->
+<div class="flex flex-col gap-8">
 <!-- Preview Section -->
 <section class="flex flex-col gap-4">
-<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest">Live Preview</h3>
-<div class="bg-white/5 rounded-xl p-8 flex items-center justify-center border border-white/10">
-<div class="relative w-32 h-44 bg-slate-900 rounded-xl flex flex-col shadow-2xl overflow-hidden border border-white/10">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest px-1">Live Preview</h3>
+<div class="bg-white/5 rounded-2xl p-8 md:p-12 flex items-center justify-center border border-white/10 shadow-inner backdrop-blur-sm">
+<div class="relative w-32 h-44 md:w-40 md:h-56 bg-slate-900 rounded-xl flex flex-col shadow-2xl overflow-hidden border border-white/10">
 <!-- Top Half -->
 <div class="absolute inset-0 flex items-center justify-center flip-top border-b border-black/40">
-<span class="text-6xl font-black text-primary" style="font-size: 5rem;">1</span>
+<span class="text-6xl md:text-7xl font-black text-primary" style="font-size: 5rem;">1</span>
 </div>
 <!-- Bottom Half -->
 <div class="absolute inset-0 flex items-center justify-center flip-bottom">
-<span class="text-6xl font-black text-primary" style="font-size: 5rem;">1</span>
+<span class="text-6xl md:text-7xl font-black text-primary" style="font-size: 5rem;">1</span>
 </div>
 <!-- Middle Line Decor -->
 <div class="absolute top-1/2 left-0 w-full h-px bg-black/20 z-10"></div>
@@ -85,13 +87,16 @@
 </label>
 </div>
 </section>
+</div>
+<!-- Right Column: Language, Typography & Theme -->
+<div class="flex flex-col gap-8">
 <!-- Language Selection -->
 <section class="flex flex-col gap-4">
 <h3 class="text-slate-100 text-lg font-bold leading-tight tracking-tight">Language</h3>
 <div class="relative w-full">
-<select class="w-full h-12 px-4 appearance-none bg-slate-900 border border-slate-800 rounded-xl text-slate-100 text-sm font-semibold focus:ring-2 focus:ring-primary focus:outline-none">
+<select class="w-full h-12 px-4 appearance-none bg-slate-900 border border-slate-800 rounded-xl text-slate-100 text-sm font-semibold focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer">
 <option value="en">English</option>
-<option value="ko">Korean</option>
+<option value="ko" selected>Korean</option>
 <option value="ja">Japanese</option>
 <option value="zh">Chinese</option>
 <option value="es">Spanish</option>
@@ -111,32 +116,33 @@
 <p class="text-primary text-sm font-bold" id="digit-size-label">100%</p>
 </div>
 <div class="flex h-6 w-full items-center gap-4">
-<input type="range" id="digit-size-slider" min="50" max="200" step="5" value="100" class="w-full h-1.5 bg-slate-800 rounded-full appearance-none cursor-pointer accent-[#ec5b13]">
+<input type="range" id="digit-size-slider" min="50" max="180" step="5" value="100" class="w-full h-1.5 bg-slate-800 rounded-full appearance-none cursor-pointer accent-[#ec5b13]">
 </div>
 </div>
 </section>
 <!-- Theme Color -->
-<section class="flex flex-col gap-4 mb-10">
+<section class="flex flex-col gap-4">
 <h3 class="text-slate-100 text-lg font-bold leading-tight tracking-tight">Theme Color</h3>
 <div class="flex flex-wrap items-center gap-4">
 <!-- Preset: White -->
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-white" title="White"></button>
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-white transition-transform hover:scale-110" title="White"></button>
 <!-- Preset: Neon Green -->
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#39ff14]" title="Neon Green"></button>
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#39ff14] transition-transform hover:scale-110" title="Neon Green"></button>
 <!-- Preset: Yellow -->
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#fdfd01]" title="Yellow"></button>
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#fdfd01] transition-transform hover:scale-110" title="Yellow"></button>
 <!-- Preset: Blue -->
-<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#0070ff]" title="Blue"></button>
+<button class="size-10 rounded-full border-2 border-slate-700 flex items-center justify-center bg-[#0070ff] transition-transform hover:scale-110" title="Blue"></button>
 <!-- Active Preset: Primary (Orange) -->
-<button class="size-12 rounded-full border-4 border-primary flex items-center justify-center bg-primary shadow-lg scale-110" title="Selected Color">
+<button class="size-12 rounded-full border-4 border-primary flex items-center justify-center bg-primary shadow-lg scale-110 transition-transform active:scale-105" title="Selected Color">
 <span class="material-symbols-outlined text-white text-base">check</span>
 </button>
 <!-- Custom Picker -->
-<button class="size-10 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center" title="Custom Color">
+<button class="size-10 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center transition-transform hover:scale-110" title="Custom Color">
 <span class="material-symbols-outlined text-slate-400 text-xl">palette</span>
 </button>
 </div>
 </section>
+</div>
 </div>
 <!-- Footer Decor -->
 <div class="mt-auto p-8 flex flex-col items-center opacity-40">
