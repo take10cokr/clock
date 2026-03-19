@@ -56,27 +56,27 @@ export default function FlipClock() {
         className="clock-container flex flex-col sm:flex-row items-center justify-center sm:gap-6 gap-4 z-10"
         style={{ transform: `scale(${clockScale})`, transformOrigin: "center center" }}
       >
-        <div className="flex sm:gap-3 gap-1.5">
+        <div className="flex sm:gap-4 gap-3">
           <FlipCard digit={hours[0]} themeColor={themeColor} />
           <FlipCard digit={hours[1]} themeColor={themeColor} />
         </div>
         
-        <div className="flex flex-row sm:flex-col gap-4 sm:gap-8 my-2 sm:my-0 mx-1 sm:mx-4 opacity-90 animate-pulse-slow">
-          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ backgroundColor: themeColor, boxShadow: `0 0 15px ${themeColor}` }}></div>
-          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ backgroundColor: themeColor, boxShadow: `0 0 15px ${themeColor}` }}></div>
+        <div className="flex flex-row sm:flex-col gap-5 sm:gap-8 my-3 sm:my-0 mx-2 sm:mx-4 opacity-90 animate-pulse-slow">
+          <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ backgroundColor: themeColor, boxShadow: `0 0 15px ${themeColor}` }}></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ backgroundColor: themeColor, boxShadow: `0 0 15px ${themeColor}` }}></div>
         </div>
         
-        <div className="flex sm:gap-3 gap-1.5">
+        <div className="flex sm:gap-4 gap-3">
           <FlipCard digit={minutes[0]} themeColor={themeColor} />
           <FlipCard digit={minutes[1]} themeColor={themeColor} />
         </div>
         
-        <div className="flex flex-row sm:flex-col gap-4 sm:gap-8 my-2 sm:my-0 mx-1 sm:mx-4 opacity-50">
-          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/40"></div>
-          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/40"></div>
+        <div className="flex flex-row sm:flex-col gap-5 sm:gap-8 my-3 sm:my-0 mx-2 sm:mx-4 opacity-50">
+          <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-white/40"></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-white/40"></div>
         </div>
 
-        <div className="flex sm:gap-3 gap-1.5">
+        <div className="flex sm:gap-4 gap-3">
           <FlipCard digit={seconds[0]} themeColor={themeColor} />
           <FlipCard digit={seconds[1]} themeColor={themeColor} />
         </div>

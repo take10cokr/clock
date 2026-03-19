@@ -1,5 +1,6 @@
 {
   "appId": "com.take10.clock",
   "appName": "clock",
-  "webDir": "."
+  "webDir": "dist",
+  "bundledWebRuntime": false
 }

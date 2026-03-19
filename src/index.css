@@ -19,30 +19,31 @@
   display: inline-flex;
   flex-direction: column;
   background-color: #121212;
-  border-radius: 12px;
-  width: 70px;
-  height: 100px;
-  font-size: 60px;
+  border-radius: 14px;
+  width: 120px;
+  height: 160px;
+  font-size: 96px;
   font-weight: 800;
   box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05) inset;
-  perspective: 600px;
+  perspective: 800px;
 }
 
 @media (min-width: 640px) {
   .flip-card {
-    width: 140px;
-    height: 200px;
-    font-size: 110px;
+    width: 150px;
+    height: 210px;
+    font-size: 120px;
     border-radius: 16px;
     perspective: 1000px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .flip-card {
-    width: 50px;
-    height: 80px;
-    font-size: 40px;
+    width: 90px;
+    height: 130px;
+    font-size: 72px;
+    border-radius: 12px;
   }
 }
 
