@@ -2,5 +2,9 @@
   "appId": "com.take10.clock",
   "appName": "clock",
   "webDir": "dist",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "backgroundColor": "#050505",
+  "android": {
+    "backgroundColor": "#050505"
+  }
 }
